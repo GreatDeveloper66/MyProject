@@ -1,0 +1,50 @@
+DELETE http://localhost:3000/subscribers
+
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "subscribedToChannel": "Mosh"
+}
+
+###
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "Mary Doe",
+    "subscribedToChannel": "Mosh"
+}
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "JimBob Anna",
+    "subscribedToChannel": "MoshPit"
+}
+###
+
+GET http://localhost:3000/subscribers
+
+###
+
+GET http://localhost:3000/subscribers/6583349dcecf0540c71e2a54
+
+
+###
+DELETE http://localhost:3000/subscribers/6583347ccecf0540c71e2a4b
+
+###
+PATCH http://localhost:3000/subscribers/6583349dcecf0540c71e2a54
+Content-Type: application/json
+
+{
+    "name": "JimBob Anna"
+}
+
+
