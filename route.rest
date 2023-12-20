@@ -33,18 +33,27 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/subscribers/6583349dcecf0540c71e2a54
+GET http://localhost:3000/subscribers/6583420ecc14d2739b40ccd3
 
 
 ###
-DELETE http://localhost:3000/subscribers/6583347ccecf0540c71e2a4b
+DELETE http://localhost:3000/subscribers/6583420ecc14d2739b40ccd3
 
 ###
-PATCH http://localhost:3000/subscribers/6583349dcecf0540c71e2a54
+PATCH http://localhost:3000/subscribers/65834232cc14d2739b40ccdd
 Content-Type: application/json
 
 {
-    "name": "JimBob Anna"
+    "name": "JimBob AnnaPatch"
+}
+###
+
+PUT http://localhost:3000/subscribers/6583420fcc14d2739b40ccd5
+Content-Type: application/json
+
+{
+    "name": "JimBob Anna",
+    "subscribedToChannel": "MoshPitPut"
 }
 
 

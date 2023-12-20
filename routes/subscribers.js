@@ -44,7 +44,22 @@ router.patch('/:id', getSubscriber, async (req, res) => {
     }
     try {
         const updatedSubscriber = await Subscriber.findByIdAndUpdate(req.params.id, res.subscriber, { new: true });
-        res.status(200).json(updatedSubscriber);
+        res.status(200).json({"message": "PATCH operation successful", "New Subscriber": updatedSubscriber});
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+router.put('/:id', getSubscriber, async (req, res) => {
+    if (req.body.name != null) {
+        res.subscriber.name = req.body.name;
+    }
+    if (req.body.subscribedToChannel != null) {
+        res.subscriber.subscribedToChannel = req.body.subscribedToChannel;
+    }
+    try {
+        const updatedSubscriber = await Subscriber.findByIdAndUpdate(req.params.id, res.subscriber, { new: true });
+        res.status(200).json({"message": "PUT operation successful", "New Subscriber" : updatedSubscriber});
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
@@ -76,8 +91,11 @@ router.delete('/', async (req, res) => {
 })  // :id is a parameter
 
 
+
+
 async function getSubscriber(req, res, next) {
     let subscriber;
+    req.params.id = req.params.id.trim();
     try {
         
         subscriber = await Subscriber.findById(req.params.id);
